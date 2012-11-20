@@ -25,6 +25,14 @@ func2 do |p|
 end
 
 # Utilisation des tables de hachage.
+# La clé peut être n’importe quel objet (ex: une expression régulière).
+
+special_key = /^as$/
+h = { 'blue' => 'bleu', :red => 'rouge', special_key => 'regexp' }
+puts "1: #{h['blue']}"
+key = :red
+puts "2: #{h[key]}"
+puts "3: #{h[/^as$/]}"
 
 def func3 map
   puts "object => #{map[:object]}"
@@ -33,8 +41,6 @@ end
 func3 object:'voiture', couleur:'camion'
 func3 :object => 'voiture', :couleur => 'camion'
 
-h = { 'blue' => 'bleu', 'red' => 'rouge' }
-puts "#{h['blue']}"
 
 # Utilisation des tables de hachage et des fonctions lambdas.
 
